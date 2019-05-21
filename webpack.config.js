@@ -7,11 +7,11 @@ console.log(NODE_ENV);
 
 
 const CONFIG = {
-    entry: './react/index.js',
+    entry: './react/app.js',
     output: {
         path: PATH.resolve(__dirname, './assets/js'),
         filename: '[name].bundle.js',
-        chunkFilename: '[name].bundle.js',
+        //chunkFilename: '[name].bundle.js',
         //publicPath: 'dist/'
     },
 

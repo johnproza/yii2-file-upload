@@ -21,9 +21,9 @@
   "author": "Ivan Proza",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/johnproza/yii2-gallery/issues"
+    "url": "https://github.com/johnproza/yii2-file-upload/issues"
   },
-  "homepage": "https://github.com/johnproza/yii2-gallery#readme",
+  "homepage": "https://github.com/johnproza/yii2-file-upload#readme",
   "dependencies": {
     "@babel/core": "^7.2.2",
     "@babel/plugin-proposal-class-properties": "^7.2.3",
@@ -45,7 +45,10 @@
     "react-cropper": "^1.0.1",
     "react-dom": "^16.6.1",
     "react-file-reader": "^1.1.4",
+    "react-redux": "^7.0.3",
     "react-sortable-hoc": "^1.6.1",
+    "reactstrap": "^8.0.0",
+    "redux": "^4.0.1",
     "webpack": "^4.28.3",
     "webpack-cli": "^3.2.0"
   },

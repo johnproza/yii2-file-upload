@@ -19,7 +19,10 @@ class DefaultController extends Controller
 
     public function actionIndex($cat=null,$item=null){
         return $this->render('index');
+    }
 
+    public function getTree(){
+        var_dump(Yii::$app->getModule('file')->userIdentityClass);
     }
 
 }
