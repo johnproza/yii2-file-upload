@@ -1,6 +1,8 @@
 Files upload extension for yii2
 ============================
-Comments extension for items
+Files upload extension for yii2.
+
+This is extension, which helps to upload files in backend
 
 Installation
 ------------
@@ -27,8 +29,11 @@ Module setup
 Insert into your config file
 ```php
 'modules' => [
-    'fileupload' => [
+    'file' => [
         'class' => 'oboom\fileupload\Module',
+        'uploadFolder' => '/home/somepath/frontend/web/uploads/files', // path to root file folder
+        'extension'=>['jpg','png','jpeg','gif','svg'], //  available extensions of files
+        'lang'=>"ru" // change frontend lang  (ru || en)
     ],
 ]
 ```

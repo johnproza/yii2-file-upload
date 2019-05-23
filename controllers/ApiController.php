@@ -8,9 +8,10 @@
 
 namespace oboom\fileupload\controllers;
 use Yii;
-use yii\data\ArrayDataProvider;
 use yii\web\Controller;
+use yii\web\UploadedFile;
 use yii\helpers\FileHelper;
+
 
 class ApiController extends Controller
 {
@@ -49,10 +50,11 @@ class ApiController extends Controller
 
     public function actionRemove($path="null"){
         if( $path!="null" && is_dir($path)){
-            return rmdir($path) ? $this->asJson([
+
+            return $this->rmdirRecursive($path) ? $this->asJson([
                 "status" => true
             ]) :  $this->asJson([
-                "status" => true
+                "status" => false
             ]);
 
         }
@@ -61,7 +63,7 @@ class ApiController extends Controller
             return unlink($path) ? $this->asJson([
                 "status" => true
             ]) :  $this->asJson([
-                "status" => true
+                "status" => false
             ]);
 
         }
@@ -74,7 +76,10 @@ class ApiController extends Controller
 
     }
 
-    public function actionCreateFolder($path,$name){
+    public function actionCreateFolder(){
+        $path = Yii::$app->request->post('path');
+        $name = Yii::$app->request->post('name');
+
         if(!empty($path) && !empty($name)) {
             if (!is_dir($path.'/'.$name)) {
                 $flag = FileHelper::createDirectory($path.'/'.$name);
@@ -86,15 +91,32 @@ class ApiController extends Controller
         }
     }
 
+    public function actionUploadFiles(){ //$path,$name
+        $path = Yii::$app->request->post('path');
+
+
+        if(!empty($path)) {
+            $file = UploadedFile::getInstanceByName('file');
+            $fileName = $file->baseName.".".$file->getExtension();
+            if($file) {
+                $file->saveAs($path.'/'.$fileName);
+            }
+
+
+            return $this->asJson([
+                "status"=>true,
+                "name"=>$fileName,
+                "size"=>$file->size,
+                "path"=> $path.'/'.$fileName
+            ]);
+        }
+    }
+
+
+
     public function actionDownload($path=null){
         if(!is_null($path)){
             if (file_exists($path)) {
-//                header('Content-Description: File Transfer');
-//                header('Content-Type: application/octet-stream');
-//                header('Content-Disposition: attachment; filename="'.basename($path).'"');
-//                header('Expires: 0');
-//                header('Cache-Control: must-revalidate');
-//                header('Pragma: public');
                 header('Content-Length: ' . filesize($path));
                 $file = readfile($path);
                 return $file;
@@ -109,10 +131,18 @@ class ApiController extends Controller
                 $size+=$file->getSize();
             }
             return $size;
-//        $line = exec('du -sh ' . $directory);
-//        $line = trim(str_replace($directory, '', $line));
-//        return $line;
 
+
+    }
+
+    private function rmdirRecursive($path) {
+        foreach(scandir($path) as $file) {
+            if ('.' === $file || '..' === $file) continue;
+            if (is_dir("$path/$file")) $this->rmdirRecursive("$path/$file");
+            else unlink("$path/$file");
+        }
+
+        return rmdir($path);
     }
 
 }

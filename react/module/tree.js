@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import {Breadcrumb, BreadcrumbItem  } from 'reactstrap';
 const Item = React.lazy(()=>import(/* webpackChunkName: "note-tree" */ './itemList'));
 const Panel = React.lazy(()=>import(/* webpackChunkName: "note-tree" */ './panel'));
+
+
 class Tree extends Component{
 
     constructor(props){
@@ -11,7 +13,7 @@ class Tree extends Component{
             modalToggle:false,
             crumbs : [{
                 name:"home",
-                path:"null"
+                path:document.getElementById("fileupload").getAttribute('path')
             }]
         }
 
@@ -28,10 +30,10 @@ class Tree extends Component{
                         })
                     }
                 </Breadcrumb>
-                <Suspense fallback="Загрузка панели" >
+                <Suspense fallback={this.props.store.lang.fallback.panel} >
                     <Panel path={this.state.crumbs}/>
                 </Suspense>
-                <Suspense fallback="Загрузка данных" >
+                <Suspense fallback={this.props.store.lang.fallback.tree} >
                     <Item open={this.openFolder}/>
                 </Suspense>
 

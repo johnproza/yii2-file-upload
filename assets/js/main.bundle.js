@@ -781,6 +781,28 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 
 /***/ }),
 
+/***/ "./react/lang/en.json":
+/*!****************************!*\
+  !*** ./react/lang/en.json ***!
+  \****************************/
+/*! exports provided: button, message, fallback, default */
+/***/ (function(module) {
+
+eval("module.exports = {\"button\":{\"add_file\":\"Add files\",\"remove_file\":\"Remove file\",\"add_folder\":\"Add folder\",\"remove_folder\":\"Remove folder\",\"cancel\":\"Cancel\"},\"message\":{\"add_file\":\"Do you want to add new file?\",\"remove_file\":\"Do you want to remove file?\",\"add_folder\":\"Do you want to add new folder?\",\"remove_folder\":\"Do you want to remove folder?\"},\"fallback\":{\"panel\":\"Loading panel...\",\"tree\":\"Loading tree...\",\"item\":\"Loading items...\",\"modal\":\"Loading window...\"}};\n\n//# sourceURL=webpack:///./react/lang/en.json?");
+
+/***/ }),
+
+/***/ "./react/lang/ru.json":
+/*!****************************!*\
+  !*** ./react/lang/ru.json ***!
+  \****************************/
+/*! exports provided: button, message, fallback, default */
+/***/ (function(module) {
+
+eval("module.exports = {\"button\":{\"add_file\":\"Добавить файлы\",\"remove_file\":\"Удалить файл\",\"add_folder\":\"Создать папку\",\"remove_folder\":\"Удалить папку\",\"cancel\":\"Отмена\"},\"message\":{\"add_file\":\"Хотите добавить новый файл?\",\"remove_file\":\"Хотите удалить новый файл?\",\"add_folder\":\"Хотите создать новую директорию?\",\"remove_folder\":\"Хотите удалить директорию?\"},\"fallback\":{\"panel\":\"Идет загрузка панели\",\"tree\":\"Идет загрузка дерева\",\"item\":\"Загрузка списка\",\"modal\":\"Загрузка окна\"}};\n\n//# sourceURL=webpack:///./react/lang/ru.json?");
+
+/***/ }),
+
 /***/ "./react/reduces/files.js":
 /*!********************************!*\
   !*** ./react/reduces/files.js ***!
@@ -789,7 +811,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var reac
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"files\", function() { return files; });\n/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ \"./node_modules/@babel/runtime/helpers/toConsumableArray.js\");\n/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__);\n\nfunction files() {\n  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];\n  var action = arguments.length > 1 ? arguments[1] : undefined;\n\n  switch (action.type) {\n    case \"ADD_FILES_DATA\":\n      return _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(action.data);\n\n    case \"REMOVE_FILES\":\n      return _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(state.filter(function (item) {\n        return item.name != action.data;\n      }));\n\n    default:\n      return state;\n  }\n}\n\n//# sourceURL=webpack:///./react/reduces/files.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"files\", function() { return files; });\n/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/helpers/toConsumableArray */ \"./node_modules/@babel/runtime/helpers/toConsumableArray.js\");\n/* harmony import */ var _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0__);\n\nfunction files() {\n  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];\n  var action = arguments.length > 1 ? arguments[1] : undefined;\n\n  switch (action.type) {\n    case \"ADD_FILES_DATA\":\n      return _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(action.data);\n\n    case \"PUSH_FILES_DATA\":\n      return [].concat(_babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(state), _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(action.data));\n\n    case \"REMOVE_FILES\":\n      return _babel_runtime_helpers_toConsumableArray__WEBPACK_IMPORTED_MODULE_0___default()(state.filter(function (item) {\n        return item.name != action.data;\n      }));\n\n    default:\n      return state;\n  }\n}\n\n//# sourceURL=webpack:///./react/reduces/files.js?");
 
 /***/ }),
 
@@ -813,7 +835,19 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n/* harmony import */ var _folders__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./folders */ \"./react/reduces/folders.js\");\n/* harmony import */ var _files__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./files */ \"./react/reduces/files.js\");\n\n\n\nvar listReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"combineReducers\"])({\n  folders: _folders__WEBPACK_IMPORTED_MODULE_1__[\"folders\"],\n  files: _files__WEBPACK_IMPORTED_MODULE_2__[\"files\"]\n});\n/* harmony default export */ __webpack_exports__[\"default\"] = (listReducer);\n\n//# sourceURL=webpack:///./react/reduces/index.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var redux__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! redux */ \"./node_modules/redux/es/redux.js\");\n/* harmony import */ var _folders__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./folders */ \"./react/reduces/folders.js\");\n/* harmony import */ var _files__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./files */ \"./react/reduces/files.js\");\n/* harmony import */ var _lang__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./lang */ \"./react/reduces/lang.js\");\n\n\n\n\nvar listReducer = Object(redux__WEBPACK_IMPORTED_MODULE_0__[\"combineReducers\"])({\n  folders: _folders__WEBPACK_IMPORTED_MODULE_1__[\"folders\"],\n  files: _files__WEBPACK_IMPORTED_MODULE_2__[\"files\"],\n  lang: _lang__WEBPACK_IMPORTED_MODULE_3__[\"lang\"]\n});\n/* harmony default export */ __webpack_exports__[\"default\"] = (listReducer);\n\n//# sourceURL=webpack:///./react/reduces/index.js?");
+
+/***/ }),
+
+/***/ "./react/reduces/lang.js":
+/*!*******************************!*\
+  !*** ./react/reduces/lang.js ***!
+  \*******************************/
+/*! exports provided: lang */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"lang\", function() { return lang; });\nif (document.getElementById('fileupload').getAttribute('lang').toLowerCase() === \"ru\") {\n  var langConfig = __webpack_require__(/*! ./../lang/ru */ \"./react/lang/ru.json\");\n} else {\n  var langConfig = __webpack_require__(/*! ./../lang/en */ \"./react/lang/en.json\");\n}\n\nfunction lang() {\n  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : Object.assign({}, langConfig);\n  var action = arguments.length > 1 ? arguments[1] : undefined;\n\n  switch (action.type) {\n    default:\n      return state;\n  }\n}\n\n//# sourceURL=webpack:///./react/reduces/lang.js?");
 
 /***/ })
 

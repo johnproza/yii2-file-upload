@@ -9,6 +9,6 @@ use oboom\fileupload\AssetsBundle;
 AssetsBundle::register($this);
 ?>
 
-<div id="fileupload">
+<div id="fileupload" path="F:\OSPanel\domains\cms\core\frontend\web\uploads\files" lang="<?=Yii::$app->getModule('file')->lang?>">
     <h2>text</h2>
 </div>

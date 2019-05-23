@@ -1,0 +1,23 @@
+{
+  "button" : {
+    "add_file" : "Add files",
+    "remove_file" : "Remove file",
+    "add_folder" : "Add folder",
+    "remove_folder" : "Remove folder",
+    "cancel" : "Cancel"
+  },
+
+  "message" : {
+    "add_file" : "Do you want to add new file?",
+    "remove_file" : "Do you want to remove file?",
+    "add_folder" : "Do you want to add new folder?",
+    "remove_folder" : "Do you want to remove folder?"
+  },
+
+  "fallback" : {
+    "panel" : "Loading panel...",
+    "tree" : "Loading tree...",
+    "item" : "Loading items...",
+    "modal" : "Loading window..."
+  }
+}

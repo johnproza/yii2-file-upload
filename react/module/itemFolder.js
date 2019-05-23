@@ -33,8 +33,8 @@ class ItemFolder extends Component {
                     }
                 </Suspense>
 
-                <ListGroupItem className="item folder" onClick={this.props.event.open}>
-                    <div>
+                <ListGroupItem className="item folder" >
+                    <div onClick={this.props.event.open}>
                         <i className="icon ion-md-folder"></i>{this.props.item.name}
                     </div>
                     <div className="system">
